@@ -23,7 +23,7 @@ const errorHandler = require('./config/errorHandler');
 const app = express();
 
 // Configuration
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 // View engine setup (EJS)
 app.set('view engine', 'ejs');
@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Make site config available to all views
 app.use((req, res, next) => {
     res.locals.siteName = process.env.SITE_NAME || 'BBQ Recipes';
-    res.locals.siteUrl = process.env.SITE_URL || 'http://localhost:3000';
+    res.locals.siteUrl = process.env.SITE_URL || 'http://localhost:3002';
     res.locals.currentPath = req.path;
     next();
 });
