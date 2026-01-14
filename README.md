@@ -1,6 +1,8 @@
-# BBQ Recipes
+# BBQ Recipes Simply
 
 A recipe website for BBQ enthusiasts built with Node.js, Express, and SQLite.
+
+**Production URL**: https://bbqrecipessimply.com
 
 ## Features
 
@@ -54,7 +56,7 @@ A recipe website for BBQ enthusiasts built with Node.js, Express, and SQLite.
    ```
 
 6. **Open in browser**:
-   Visit `http://localhost:3000`
+   Visit `http://localhost:3002`
 
 ## Development
 
@@ -71,6 +73,7 @@ npm run dev
 | `npm run dev` | Start with nodemon (auto-reload) |
 | `npm run seed` | Populate database with 100 sample recipes |
 | `npm run reset-db` | Delete and reinitialize the database |
+| `node scripts/add-images.js` | Add placeholder images to all recipes |
 
 ## Project Structure
 

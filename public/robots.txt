@@ -1,0 +1,10 @@
+# robots.txt for bbqrecipessimply.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bbqrecipessimply.com/sitemap.xml
+
+# Disallow admin/private areas (if any)
+Disallow: /api/

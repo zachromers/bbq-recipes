@@ -40,8 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Make site config available to all views
 app.use((req, res, next) => {
-    res.locals.siteName = process.env.SITE_NAME || 'BBQ Recipes';
-    res.locals.siteUrl = process.env.SITE_URL || 'http://localhost:3002';
+    res.locals.siteName = process.env.SITE_NAME || 'BBQ Recipes Simply';
+    res.locals.siteUrl = process.env.SITE_URL || 'https://bbqrecipessimply.com';
     res.locals.currentPath = req.path;
     next();
 });
