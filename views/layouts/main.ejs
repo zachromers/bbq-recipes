@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO Meta Tags -->
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="<%= description %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= siteUrl %><%= currentPath %>">
+    <meta property="og:site_name" content="<%= siteName %>">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= title %>">
+    <meta name="twitter:description" content="<%= description %>">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!--
+        Google AdSense Head Code
+        Replace with your AdSense code:
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    -->
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with Navigation -->
+    <%- include('../partials/header') %>
+
+    <!-- Page Wrapper with Ad Sidebars -->
+    <div class="page-wrapper">
+        <!-- Left Sidebar Ad (Desktop Only) -->
+        <aside class="ad-sidebar ad-sidebar-left">
+            <%- include('../partials/ad-sidebar') %>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content">
+            <!-- Mobile Top Ad -->
+            <div class="ad-mobile ad-mobile-top">
+                <%- include('../partials/ad-mobile') %>
+            </div>
+
+            <!-- Page Content -->
+            <%- body %>
+
+            <!-- Mobile Bottom Ad -->
+            <div class="ad-mobile ad-mobile-bottom">
+                <%- include('../partials/ad-mobile') %>
+            </div>
+        </main>
+
+        <!-- Right Sidebar Ad (Desktop Only) -->
+        <aside class="ad-sidebar ad-sidebar-right">
+            <%- include('../partials/ad-sidebar') %>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <%- include('../partials/footer') %>
+
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

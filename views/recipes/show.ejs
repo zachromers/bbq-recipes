@@ -1,0 +1,113 @@
+<!-- Single Recipe Page -->
+
+<article class="recipe-detail">
+    <!-- Recipe Header -->
+    <header class="recipe-header">
+        <div class="recipe-breadcrumb">
+            <a href="/">Home</a> &raquo;
+            <a href="/recipes">Recipes</a> &raquo;
+            <% if (recipe.category_name) { %>
+                <a href="/recipes/category/<%= recipe.category_slug %>"><%= recipe.category_name %></a> &raquo;
+            <% } %>
+            <span><%= recipe.title %></span>
+        </div>
+
+        <h1 class="recipe-title"><%= recipe.title %></h1>
+
+        <% if (recipe.description) { %>
+            <p class="recipe-description"><%= recipe.description %></p>
+        <% } %>
+
+        <!-- Recipe Meta Info -->
+        <div class="recipe-meta">
+            <% if (recipe.prep_time) { %>
+                <div class="recipe-meta-item">
+                    <span class="meta-icon">🔪</span>
+                    <span class="meta-label">Prep Time</span>
+                    <span class="meta-value"><%= recipe.prep_time %> min</span>
+                </div>
+            <% } %>
+            <% if (recipe.cook_time) { %>
+                <div class="recipe-meta-item">
+                    <span class="meta-icon">🔥</span>
+                    <span class="meta-label">Cook Time</span>
+                    <span class="meta-value"><%= recipe.cook_time %> min</span>
+                </div>
+            <% } %>
+            <% if (recipe.total_time) { %>
+                <div class="recipe-meta-item">
+                    <span class="meta-icon">⏱️</span>
+                    <span class="meta-label">Total Time</span>
+                    <span class="meta-value"><%= recipe.total_time %> min</span>
+                </div>
+            <% } %>
+            <% if (recipe.servings) { %>
+                <div class="recipe-meta-item">
+                    <span class="meta-icon">👥</span>
+                    <span class="meta-label">Servings</span>
+                    <span class="meta-value"><%= recipe.servings %></span>
+                </div>
+            <% } %>
+        </div>
+    </header>
+
+    <!-- Recipe Image -->
+    <% if (recipe.image_url) { %>
+        <div class="recipe-image-container">
+            <img
+                src="<%= recipe.image_url %>"
+                alt="<%= recipe.title %>"
+                class="recipe-image"
+            >
+        </div>
+    <% } %>
+
+    <div class="recipe-body">
+        <!-- Ingredients Section -->
+        <section class="recipe-section ingredients-section">
+            <h2 class="recipe-section-title">Ingredients</h2>
+            <ul class="ingredients-list">
+                <% recipe.ingredients.forEach(ingredient => { %>
+                    <li class="ingredient-item">
+                        <label class="ingredient-checkbox">
+                            <input type="checkbox">
+                            <span><%= ingredient %></span>
+                        </label>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+
+        <!-- Instructions Section -->
+        <section class="recipe-section instructions-section">
+            <h2 class="recipe-section-title">Instructions</h2>
+            <ol class="instructions-list">
+                <% recipe.instructions.forEach((instruction, index) => { %>
+                    <li class="instruction-item">
+                        <span class="instruction-number"><%= index + 1 %></span>
+                        <p class="instruction-text"><%= instruction %></p>
+                    </li>
+                <% }) %>
+            </ol>
+        </section>
+    </div>
+
+    <!-- Recipe Actions -->
+    <div class="recipe-actions">
+        <button class="btn btn-secondary print-btn" onclick="window.print()">
+            🖨️ Print Recipe
+        </button>
+    </div>
+</article>
+
+<!-- Related Recipes -->
+<% if (relatedRecipes && relatedRecipes.length > 0) { %>
+<section class="section related-section">
+    <h2 class="section-title">More <%= recipe.category_name %> Recipes</h2>
+    <div class="recipe-grid recipe-grid-small">
+        <% relatedRecipes.forEach(related => { %>
+            <%- include('../partials/recipe-card', { recipe: related }) %>
+        <% }) %>
+    </div>
+</section>
+<% } %>

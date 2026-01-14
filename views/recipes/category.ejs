@@ -1,0 +1,45 @@
+<!-- Category Recipes Page -->
+
+<section class="page-header">
+    <h1 class="page-title"><%= category.name %> Recipes</h1>
+    <p class="page-description">
+        <%= category.description || `Delicious ${category.name.toLowerCase()} BBQ recipes.` %>
+    </p>
+</section>
+
+<!-- Category Filter -->
+<section class="section filter-section">
+    <div class="category-filter">
+        <span class="filter-label">Filter by category:</span>
+        <div class="filter-buttons">
+            <a href="/recipes" class="filter-btn">All</a>
+            <% categories.forEach(cat => { %>
+                <a href="/recipes/category/<%= cat.slug %>"
+                   class="filter-btn <%= currentCategory === cat.slug ? 'active' : '' %>">
+                    <%= cat.name %> (<%= cat.recipe_count %>)
+                </a>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<!-- Recipe Grid -->
+<% if (recipes && recipes.length > 0) { %>
+<section class="section recipes-section">
+    <p class="results-count">
+        Showing <%= recipes.length %> <%= category.name.toLowerCase() %> recipe<%= recipes.length !== 1 ? 's' : '' %>
+    </p>
+    <div class="recipe-grid">
+        <% recipes.forEach(recipe => { %>
+            <%- include('../partials/recipe-card', { recipe }) %>
+        <% }) %>
+    </div>
+</section>
+<% } else { %>
+<section class="section no-recipes-section">
+    <div class="no-results">
+        <p>No <%= category.name.toLowerCase() %> recipes found yet. Check back soon!</p>
+        <a href="/recipes" class="btn btn-secondary">View All Recipes</a>
+    </div>
+</section>
+<% } %>

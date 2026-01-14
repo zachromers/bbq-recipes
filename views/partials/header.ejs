@@ -1,0 +1,61 @@
+<!-- Site Header -->
+<header class="site-header">
+    <div class="header-container">
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="logo-icon">🔥</span>
+            <span class="logo-text">BBQ Recipes</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="main-nav" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="/" class="nav-link <%= currentPath === '/' ? 'active' : '' %>">Home</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="/recipes" class="nav-link <%= currentPath.startsWith('/recipes') ? 'active' : '' %>">
+                        Recipes
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/recipes" class="dropdown-link">All Recipes</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a href="/recipes/category/pork" class="dropdown-link">Pork</a></li>
+                        <li><a href="/recipes/category/beef" class="dropdown-link">Beef</a></li>
+                        <li><a href="/recipes/category/lamb" class="dropdown-link">Lamb</a></li>
+                        <li><a href="/recipes/category/chicken" class="dropdown-link">Chicken</a></li>
+                        <li><a href="/recipes/category/seafood" class="dropdown-link">Seafood</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/store" class="nav-link <%= currentPath.startsWith('/store') ? 'active' : '' %>">Store</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/reviews" class="nav-link <%= currentPath.startsWith('/reviews') ? 'active' : '' %>">Reviews</a>
+                </li>
+            </ul>
+
+            <!-- Search Form -->
+            <form action="/search" method="GET" class="search-form">
+                <input
+                    type="search"
+                    name="q"
+                    placeholder="Search recipes..."
+                    aria-label="Search recipes"
+                    class="search-input"
+                >
+                <button type="submit" class="search-button" aria-label="Submit search">
+                    🔍
+                </button>
+            </form>
+        </nav>
+    </div>
+</header>

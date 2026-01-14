@@ -1,0 +1,41 @@
+<!-- All Recipes Page -->
+
+<section class="page-header">
+    <h1 class="page-title">All Recipes</h1>
+    <p class="page-description">
+        Browse our complete collection of BBQ recipes.
+    </p>
+</section>
+
+<!-- Category Filter -->
+<section class="section filter-section">
+    <div class="category-filter">
+        <span class="filter-label">Filter by category:</span>
+        <div class="filter-buttons">
+            <a href="/recipes" class="filter-btn <%= !currentCategory ? 'active' : '' %>">All</a>
+            <% categories.forEach(cat => { %>
+                <a href="/recipes/category/<%= cat.slug %>"
+                   class="filter-btn <%= currentCategory === cat.slug ? 'active' : '' %>">
+                    <%= cat.name %> (<%= cat.recipe_count %>)
+                </a>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<!-- Recipe Grid -->
+<% if (recipes && recipes.length > 0) { %>
+<section class="section recipes-section">
+    <div class="recipe-grid">
+        <% recipes.forEach(recipe => { %>
+            <%- include('../partials/recipe-card', { recipe }) %>
+        <% }) %>
+    </div>
+</section>
+<% } else { %>
+<section class="section no-recipes-section">
+    <div class="no-results">
+        <p>No recipes found. Check back soon for new recipes!</p>
+    </div>
+</section>
+<% } %>

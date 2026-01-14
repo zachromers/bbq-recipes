@@ -1,0 +1,39 @@
+<!-- Recipe Card Component -->
+<article class="recipe-card">
+    <a href="/recipes/<%= recipe.slug %>" class="recipe-card-link">
+        <div class="recipe-card-image">
+            <% if (recipe.image_url) { %>
+                <img
+                    src="<%= recipe.image_url %>"
+                    alt="<%= recipe.title %>"
+                    loading="lazy"
+                >
+            <% } else { %>
+                <div class="recipe-card-placeholder-image">
+                    <span>🍖</span>
+                </div>
+            <% } %>
+            <% if (recipe.category_name) { %>
+                <span class="recipe-card-category"><%= recipe.category_name %></span>
+            <% } %>
+        </div>
+        <div class="recipe-card-content">
+            <h3 class="recipe-card-title"><%= recipe.title %></h3>
+            <p class="recipe-card-description">
+                <%= recipe.description ? recipe.description.substring(0, 100) + (recipe.description.length > 100 ? '...' : '') : 'A delicious BBQ recipe.' %>
+            </p>
+            <div class="recipe-card-meta">
+                <% if (recipe.total_time) { %>
+                    <span class="recipe-card-time">
+                        ⏱️ <%= recipe.total_time %> min
+                    </span>
+                <% } %>
+                <% if (recipe.servings) { %>
+                    <span class="recipe-card-servings">
+                        👥 <%= recipe.servings %> servings
+                    </span>
+                <% } %>
+            </div>
+        </div>
+    </a>
+</article>

@@ -1,0 +1,51 @@
+<!-- Search Results Page -->
+
+<section class="page-header">
+    <h1 class="page-title">Search Results</h1>
+    <% if (query) { %>
+        <p class="page-description">
+            <% if (recipes.length > 0) { %>
+                Found <%= recipes.length %> recipe<%= recipes.length !== 1 ? 's' : '' %> for "<strong><%= query %></strong>"
+            <% } else { %>
+                No recipes found for "<strong><%= query %></strong>"
+            <% } %>
+        </p>
+    <% } %>
+</section>
+
+<!-- Search Form -->
+<section class="section search-section">
+    <form action="/search" method="GET" class="search-form-large">
+        <input
+            type="search"
+            name="q"
+            value="<%= query %>"
+            placeholder="Search for recipes..."
+            aria-label="Search recipes"
+            class="search-input-large"
+        >
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</section>
+
+<!-- Search Results -->
+<% if (recipes && recipes.length > 0) { %>
+<section class="section results-section">
+    <div class="recipe-grid">
+        <% recipes.forEach(recipe => { %>
+            <%- include('../partials/recipe-card', { recipe }) %>
+        <% }) %>
+    </div>
+</section>
+<% } else if (query) { %>
+<section class="section no-results-section">
+    <div class="no-results">
+        <p>No recipes matched your search. Try:</p>
+        <ul>
+            <li>Using different keywords</li>
+            <li>Checking your spelling</li>
+            <li>Browsing our <a href="/recipes">recipe categories</a></li>
+        </ul>
+    </div>
+</section>
+<% } %>

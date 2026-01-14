@@ -1,0 +1,84 @@
+<!-- Homepage -->
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Master the Art of BBQ</h1>
+        <p class="hero-subtitle">
+            Discover mouthwatering recipes for smoking, grilling, and barbecuing
+            the perfect meats every time.
+        </p>
+        <a href="/recipes" class="btn btn-primary">Browse Recipes</a>
+    </div>
+</section>
+
+<!-- Category Quick Links -->
+<section class="section categories-section">
+    <h2 class="section-title">Recipe Categories</h2>
+    <div class="category-grid">
+        <a href="/recipes/category/pork" class="category-card">
+            <span class="category-icon">🐷</span>
+            <span class="category-name">Pork</span>
+        </a>
+        <a href="/recipes/category/beef" class="category-card">
+            <span class="category-icon">🐄</span>
+            <span class="category-name">Beef</span>
+        </a>
+        <a href="/recipes/category/lamb" class="category-card">
+            <span class="category-icon">🐑</span>
+            <span class="category-name">Lamb</span>
+        </a>
+        <a href="/recipes/category/chicken" class="category-card">
+            <span class="category-icon">🐔</span>
+            <span class="category-name">Chicken</span>
+        </a>
+        <a href="/recipes/category/seafood" class="category-card">
+            <span class="category-icon">🦐</span>
+            <span class="category-name">Seafood</span>
+        </a>
+    </div>
+</section>
+
+<!-- Featured Recipes -->
+<% if (featuredRecipes && featuredRecipes.length > 0) { %>
+<section class="section featured-section">
+    <h2 class="section-title">Featured Recipes</h2>
+    <div class="recipe-grid">
+        <% featuredRecipes.forEach(recipe => { %>
+            <%- include('../partials/recipe-card', { recipe }) %>
+        <% }) %>
+    </div>
+</section>
+<% } %>
+
+<!-- Recent Recipes -->
+<% if (recentRecipes && recentRecipes.length > 0) { %>
+<section class="section recent-section">
+    <h2 class="section-title">Latest Recipes</h2>
+    <div class="recipe-grid">
+        <% recentRecipes.forEach(recipe => { %>
+            <%- include('../partials/recipe-card', { recipe }) %>
+        <% }) %>
+    </div>
+    <div class="section-cta">
+        <a href="/recipes" class="btn btn-secondary">View All Recipes</a>
+    </div>
+</section>
+<% } %>
+
+<!-- About Section -->
+<section class="section about-section">
+    <div class="about-content">
+        <h2 class="section-title">About BBQ Recipes</h2>
+        <p>
+            Welcome to BBQ Recipes, your ultimate destination for delicious grilling
+            and smoking recipes. Whether you're a seasoned pitmaster or just getting
+            started, we have recipes to help you create amazing BBQ at home.
+        </p>
+        <p>
+            From tender pulled pork to perfectly smoked brisket, juicy grilled chicken
+            to flavorful seafood, explore our collection and take your BBQ skills to
+            the next level.
+        </p>
+    </div>
+</section>
