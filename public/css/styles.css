@@ -1206,6 +1206,46 @@ button {
 }
 
 /* ============================================
+   Large Desktop Styles (1400px+)
+   ============================================ */
+@media (min-width: 1400px) {
+    :root {
+        --sidebar-width: 250px;
+        --max-content-width: 1000px;
+    }
+
+    .recipe-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .recipe-grid-small {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .main-content {
+        padding: var(--spacing-2xl);
+    }
+}
+
+/* ============================================
+   Extra Large Desktop Styles (1800px+)
+   ============================================ */
+@media (min-width: 1800px) {
+    :root {
+        --sidebar-width: 300px;
+        --max-content-width: 1200px;
+    }
+
+    .recipe-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .recipe-grid-small {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* ============================================
    Print Styles
    ============================================ */
 @media print {

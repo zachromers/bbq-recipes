@@ -1,8 +1,7 @@
 # Dependencies
 node_modules/
 
-# Database
-database/*.db
+# Database (recipes.db is tracked to persist seed recipes)
 
 # Environment
 .env
