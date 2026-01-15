@@ -1214,6 +1214,14 @@ button {
         --max-content-width: 1000px;
     }
 
+    .page-wrapper {
+        max-width: 1800px;
+    }
+
+    .header-container {
+        max-width: 1800px;
+    }
+
     .recipe-grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -1224,6 +1232,10 @@ button {
 
     .main-content {
         padding: var(--spacing-2xl);
+    }
+
+    .footer-container {
+        max-width: 1800px;
     }
 }
 
@@ -1236,12 +1248,24 @@ button {
         --max-content-width: 1200px;
     }
 
+    .page-wrapper {
+        max-width: 2200px;
+    }
+
+    .header-container {
+        max-width: 2200px;
+    }
+
     .recipe-grid {
         grid-template-columns: repeat(5, 1fr);
     }
 
     .recipe-grid-small {
         grid-template-columns: repeat(6, 1fr);
+    }
+
+    .footer-container {
+        max-width: 2200px;
     }
 }
 
