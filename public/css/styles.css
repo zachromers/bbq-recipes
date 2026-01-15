@@ -91,6 +91,7 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    width: 100%;
 }
 
 body {
@@ -100,8 +101,16 @@ body {
     color: var(--color-gray-800);
     background-color: var(--color-gray-100);
     min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.site-header,
+.page-wrapper,
+.site-footer {
+    width: 100%;
 }
 
 img {
