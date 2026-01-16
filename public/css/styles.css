@@ -716,6 +716,10 @@ button {
     margin-bottom: var(--spacing-lg);
 }
 
+.jump-to-recipe-btn {
+    margin-bottom: var(--spacing-lg);
+}
+
 .recipe-meta {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1288,7 +1292,8 @@ button {
     .ad-mobile,
     .recipe-actions,
     .related-section,
-    .search-form {
+    .search-form,
+    .jump-to-recipe-btn {
         display: none !important;
     }
 

@@ -18,6 +18,9 @@
             <p class="recipe-description"><%= recipe.description %></p>
         <% } %>
 
+        <!-- Jump to Recipe Button -->
+        <a href="#recipe-instructions" class="btn btn-primary jump-to-recipe-btn">Jump to Recipe</a>
+
         <!-- Recipe Meta Info -->
         <div class="recipe-meta">
             <% if (recipe.prep_time) { %>
@@ -79,7 +82,7 @@
         </section>
 
         <!-- Instructions Section -->
-        <section class="recipe-section instructions-section">
+        <section id="recipe-instructions" class="recipe-section instructions-section">
             <h2 class="recipe-section-title">Instructions</h2>
             <ol class="instructions-list">
                 <% recipe.instructions.forEach((instruction, index) => { %>
