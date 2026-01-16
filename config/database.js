@@ -50,6 +50,7 @@ async function initializeDatabase() {
             title TEXT NOT NULL,
             slug TEXT NOT NULL UNIQUE,
             description TEXT,
+            extended_description TEXT,
             ingredients TEXT NOT NULL,
             instructions TEXT NOT NULL,
             prep_time INTEGER,
@@ -63,6 +64,13 @@ async function initializeDatabase() {
             FOREIGN KEY (category_id) REFERENCES categories(id)
         )
     `);
+
+    // Add extended_description column if it doesn't exist (for existing databases)
+    try {
+        db.run('ALTER TABLE recipes ADD COLUMN extended_description TEXT');
+    } catch (e) {
+        // Column already exists, ignore
+    }
 
     // Create indexes
     db.run('CREATE INDEX IF NOT EXISTS idx_recipes_category ON recipes(category_id)');

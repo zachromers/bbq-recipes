@@ -159,13 +159,14 @@ async function seed() {
 
             db.execute(`
                 INSERT INTO recipes (
-                    title, slug, description, ingredients, instructions,
+                    title, slug, description, extended_description, ingredients, instructions,
                     prep_time, cook_time, servings, category_id, image_url, featured
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             `, [
                 recipe.title,
                 slug,
                 recipe.description,
+                recipe.extended_description || null,
                 JSON.stringify(recipe.ingredients),
                 JSON.stringify(recipe.instructions),
                 recipe.prep_time,

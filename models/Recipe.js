@@ -108,13 +108,14 @@ class Recipe {
 
         const result = db.execute(`
             INSERT INTO recipes (
-                title, slug, description, ingredients, instructions,
+                title, slug, description, extended_description, ingredients, instructions,
                 prep_time, cook_time, servings, category_id, image_url, featured
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `, [
             data.title,
             slug,
             data.description,
+            data.extended_description || null,
             ingredients,
             instructions,
             data.prep_time,

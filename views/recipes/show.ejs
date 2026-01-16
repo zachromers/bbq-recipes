@@ -65,6 +65,13 @@
         </div>
     <% } %>
 
+    <!-- Extended Description / Story Section -->
+    <% if (recipe.extended_description) { %>
+        <div class="recipe-story">
+            <%- recipe.extended_description %>
+        </div>
+    <% } %>
+
     <div class="recipe-body">
         <!-- Ingredients Section -->
         <section class="recipe-section ingredients-section">
