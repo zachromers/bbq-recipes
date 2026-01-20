@@ -1113,6 +1113,19 @@ button {
     color: var(--color-gray-700);
 }
 
+.instruction-text a.product-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-primary-light);
+    transition: all 0.2s ease;
+}
+
+.instruction-text a.product-link:hover {
+    color: var(--color-primary-dark);
+    border-bottom-color: var(--color-primary);
+}
+
 .recipe-actions {
     display: flex;
     gap: var(--spacing-md);

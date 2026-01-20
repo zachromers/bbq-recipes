@@ -105,7 +105,7 @@
                 <% recipe.instructions.forEach((instruction, index) => { %>
                     <li class="instruction-item">
                         <span class="instruction-number"><%= index + 1 %></span>
-                        <p class="instruction-text"><%= instruction %></p>
+                        <p class="instruction-text"><%- instruction %></p>
                     </li>
                 <% }) %>
             </ol>
