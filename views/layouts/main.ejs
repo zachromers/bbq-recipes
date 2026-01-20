@@ -79,5 +79,41 @@
 
     <!-- JavaScript -->
     <script src="/js/main.js"></script>
+
+    <!-- Smart Ad Loading - Only push ads when container is visible -->
+    <script>
+    (function() {
+        function isVisible(el) {
+            if (!el) return false;
+            var style = window.getComputedStyle(el);
+            return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetWidth > 0;
+        }
+
+        function loadVisibleAds() {
+            var ads = document.querySelectorAll('.adsbygoogle:not([data-ad-loaded])');
+            ads.forEach(function(ad) {
+                var container = ad.closest('.ad-sidebar, .ad-mobile, .review-ad, .recipe-story-ad');
+                // If no specific container found, check the ad element itself
+                var elementToCheck = container || ad;
+                if (isVisible(elementToCheck)) {
+                    ad.setAttribute('data-ad-loaded', 'true');
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch(e) {
+                        console.log('Ad load error:', e);
+                    }
+                }
+            });
+        }
+
+        // Load ads on page load and resize
+        if (document.readyState === 'complete') {
+            loadVisibleAds();
+        } else {
+            window.addEventListener('load', loadVisibleAds);
+        }
+        window.addEventListener('resize', loadVisibleAds);
+    })();
+    </script>
 </body>
 </html>

@@ -3,34 +3,13 @@
 
     This container is for displaying ads in the sidebar on desktop screens.
     The ads use sticky positioning to remain visible as the user scrolls.
-
-    To integrate Google AdSense:
-    1. Replace the placeholder content below with your AdSense ad unit code
-    2. Example:
-       <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-            data-ad-slot="XXXXXXXXXX"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-       <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-       </script>
-
-    For other ad networks:
-    - Replace the placeholder with the appropriate ad code
-    - Ensure the ad dimensions fit within the sidebar (typically 160x600 or 300x600)
 -->
 
 <div class="ad-container ad-sidebar-container">
     <!-- 160x600 Desktop Sidebar Ad -->
-    <ins class="adsbygoogle"
-         style="display:block"
+    <ins class="adsbygoogle ad-sidebar-unit"
+         style="display:block; min-width:160px; min-height:600px;"
          data-ad-client="ca-pub-2820189081885169"
          data-ad-slot="7216939523"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+         data-ad-format="vertical"></ins>
 </div>
