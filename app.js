@@ -43,6 +43,17 @@ app.use((req, res, next) => {
     res.locals.siteName = process.env.SITE_NAME || 'BBQ Recipes Simply';
     res.locals.siteUrl = process.env.SITE_URL || 'https://bbqrecipessimply.com';
     res.locals.currentPath = req.path;
+
+    // Helper function to format minutes as hours and minutes
+    res.locals.formatTime = (minutes) => {
+        if (!minutes) return '';
+        const hrs = Math.floor(minutes / 60);
+        const mins = minutes % 60;
+        if (hrs === 0) return `${mins} minutes`;
+        if (mins === 0) return hrs === 1 ? '1 hour' : `${hrs} hours`;
+        return `${hrs} ${hrs === 1 ? 'hour' : 'hours'} ${mins} ${mins === 1 ? 'minute' : 'minutes'}`;
+    };
+
     next();
 });
 

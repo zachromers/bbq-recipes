@@ -27,21 +27,21 @@
                 <div class="recipe-meta-item">
                     <span class="meta-icon">🔪</span>
                     <span class="meta-label">Prep Time</span>
-                    <span class="meta-value"><%= recipe.prep_time %> min</span>
+                    <span class="meta-value"><%= formatTime(recipe.prep_time) %></span>
                 </div>
             <% } %>
             <% if (recipe.cook_time) { %>
                 <div class="recipe-meta-item">
                     <span class="meta-icon">🔥</span>
                     <span class="meta-label">Cook Time</span>
-                    <span class="meta-value"><%= recipe.cook_time %> min</span>
+                    <span class="meta-value"><%= formatTime(recipe.cook_time) %></span>
                 </div>
             <% } %>
             <% if (recipe.total_time) { %>
                 <div class="recipe-meta-item">
                     <span class="meta-icon">⏱️</span>
                     <span class="meta-label">Total Time</span>
-                    <span class="meta-value"><%= recipe.total_time %> min</span>
+                    <span class="meta-value"><%= formatTime(recipe.total_time) %></span>
                 </div>
             <% } %>
             <% if (recipe.servings) { %>

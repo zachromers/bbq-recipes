@@ -80,39 +80,50 @@
     <!-- JavaScript -->
     <script src="/js/main.js"></script>
 
-    <!-- Smart Ad Loading - Only push ads when container is visible -->
+    <!-- Smart Ad Loading - Only push ads when container has width -->
     <script>
     (function() {
-        function isVisible(el) {
+        function hasWidth(el) {
             if (!el) return false;
+            // Check computed style and actual dimensions
             var style = window.getComputedStyle(el);
-            return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetWidth > 0;
+            if (style.display === 'none' || style.visibility === 'hidden') return false;
+            // Get the bounding rect which is more reliable
+            var rect = el.getBoundingClientRect();
+            return rect.width > 0;
         }
 
         function loadVisibleAds() {
             var ads = document.querySelectorAll('.adsbygoogle:not([data-ad-loaded])');
             ads.forEach(function(ad) {
-                var container = ad.closest('.ad-sidebar, .ad-mobile, .review-ad, .recipe-story-ad');
-                // If no specific container found, check the ad element itself
-                var elementToCheck = container || ad;
-                if (isVisible(elementToCheck)) {
+                // Check the ad element itself has width
+                if (hasWidth(ad) && ad.offsetWidth > 0) {
                     ad.setAttribute('data-ad-loaded', 'true');
                     try {
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     } catch(e) {
-                        console.log('Ad load error:', e);
+                        // Silently ignore - ad container might still be initializing
                     }
                 }
             });
         }
 
+        // Debounce resize events
+        var resizeTimer;
+        function onResize() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(loadVisibleAds, 250);
+        }
+
         // Load ads on page load and resize
         if (document.readyState === 'complete') {
-            loadVisibleAds();
+            setTimeout(loadVisibleAds, 100);
         } else {
-            window.addEventListener('load', loadVisibleAds);
+            window.addEventListener('load', function() {
+                setTimeout(loadVisibleAds, 100);
+            });
         }
-        window.addEventListener('resize', loadVisibleAds);
+        window.addEventListener('resize', onResize);
     })();
     </script>
 </body>

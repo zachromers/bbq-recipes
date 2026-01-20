@@ -25,7 +25,7 @@
             <div class="recipe-card-meta">
                 <% if (recipe.total_time) { %>
                     <span class="recipe-card-time">
-                        ⏱️ <%= recipe.total_time %> min
+                        ⏱️ <%= formatTime(recipe.total_time) %>
                     </span>
                 <% } %>
                 <% if (recipe.servings) { %>

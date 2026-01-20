@@ -398,7 +398,13 @@ button {
 /* Mobile Ads */
 .ad-mobile {
     display: block;
+    width: 100%;
     margin-bottom: var(--spacing-lg);
+}
+
+.ad-mobile .adsbygoogle {
+    width: 100%;
+    min-height: 100px;
 }
 
 .ad-mobile-bottom {
@@ -1476,6 +1482,8 @@ button {
     /* Show Desktop Sidebars */
     .ad-sidebar {
         display: block;
+        width: 160px;
+        min-width: 160px;
         padding: var(--spacing-md);
         background-color: var(--color-gray-100);
     }
@@ -1483,6 +1491,12 @@ button {
     .ad-sidebar-container {
         position: sticky;
         top: calc(var(--header-height) + var(--spacing-md));
+        width: 160px;
+    }
+
+    .ad-sidebar .adsbygoogle {
+        width: 160px;
+        min-height: 600px;
     }
 
     .ad-placeholder {
