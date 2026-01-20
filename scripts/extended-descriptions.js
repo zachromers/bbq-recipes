@@ -5,8 +5,15 @@
 
 const adPlaceholder = `
 <div class="recipe-story-ad">
-    <span class="ad-label">Advertisement</span>
-    <div class="ad-placeholder-content">Ad Space - 728x90</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-fb+5w+4e-db+86"
+         data-ad-client="ca-pub-2820189081885169"
+         data-ad-slot="7825096579"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </div>`;
 
 const extendedDescriptions = {
