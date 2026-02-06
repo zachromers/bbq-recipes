@@ -65,7 +65,6 @@
 
     /* Layout */
     --max-content-width: 800px;
-    --sidebar-width: 180px;
     --header-height: 70px;
 
     /* Borders - Softer, more rounded */
@@ -372,12 +371,12 @@ button {
 }
 
 /* ============================================
-   Page Layout with Ad Sidebars
+   Page Layout
    ============================================ */
 .page-wrapper {
     display: flex;
     flex: 1;
-    max-width: 1400px;
+    max-width: 1000px;
     margin: 0 auto;
     width: 100%;
 }
@@ -390,60 +389,6 @@ button {
     border-radius: 0;
 }
 
-/* Ad Sidebars (Hidden on Mobile) */
-.ad-sidebar {
-    display: none;
-}
-
-/* Mobile Ads */
-.ad-mobile {
-    display: block;
-    width: 100%;
-    margin-bottom: var(--spacing-lg);
-}
-
-.ad-mobile .adsbygoogle {
-    width: 100%;
-    min-height: 100px;
-}
-
-.ad-mobile-bottom {
-    margin-top: var(--spacing-lg);
-    margin-bottom: 0;
-}
-
-/* Ad Container Styling */
-.ad-container {
-    background-color: var(--color-gray-200);
-    border-radius: var(--border-radius-sm);
-    overflow: hidden;
-}
-
-.ad-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-md);
-    text-align: center;
-    color: var(--color-gray-500);
-    min-height: 100px;
-}
-
-.ad-placeholder-horizontal {
-    min-height: 100px;
-}
-
-.ad-label {
-    font-size: var(--font-size-xs);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: var(--spacing-sm);
-}
-
-.ad-placeholder-content {
-    font-size: var(--font-size-sm);
-}
 
 /* ============================================
    Buttons
@@ -967,31 +912,6 @@ button {
     margin-bottom: 0;
 }
 
-.recipe-story-ad {
-    margin: var(--spacing-lg) 0;
-    padding: var(--spacing-md);
-    background-color: var(--color-gray-200);
-    border-radius: var(--border-radius-sm);
-    text-align: center;
-}
-
-.recipe-story-ad .ad-label {
-    display: block;
-    font-size: var(--font-size-xs);
-    color: var(--color-gray-500);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: var(--spacing-sm);
-}
-
-.recipe-story-ad .ad-placeholder-content {
-    min-height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-gray-400);
-    font-size: var(--font-size-sm);
-}
 
 .recipe-body {
     margin-bottom: var(--spacing-xl);
@@ -1481,44 +1401,8 @@ button {
         width: 180px;
     }
 
-    /* Desktop Layout with Sidebars */
-    .page-wrapper {
-        display: grid;
-        grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
-        gap: 0;
-    }
-
     .main-content {
         padding: var(--spacing-xl);
-    }
-
-    /* Show Desktop Sidebars */
-    .ad-sidebar {
-        display: block;
-        width: 160px;
-        min-width: 160px;
-        padding: var(--spacing-md);
-        background-color: var(--color-gray-100);
-    }
-
-    .ad-sidebar-container {
-        position: sticky;
-        top: calc(var(--header-height) + var(--spacing-md));
-        width: 160px;
-    }
-
-    .ad-sidebar .adsbygoogle {
-        width: 160px;
-        min-height: 600px;
-    }
-
-    .ad-placeholder {
-        min-height: 600px;
-    }
-
-    /* Hide Mobile Ads on Desktop */
-    .ad-mobile {
-        display: none;
     }
 
     /* Desktop Recipe Grid */
@@ -1541,16 +1425,15 @@ button {
    ============================================ */
 @media (min-width: 1400px) {
     :root {
-        --sidebar-width: 250px;
         --max-content-width: 1000px;
     }
 
     .page-wrapper {
-        max-width: 1800px;
+        max-width: 1200px;
     }
 
     .header-container {
-        max-width: 1800px;
+        max-width: 1200px;
     }
 
     .recipe-grid {
@@ -1566,7 +1449,7 @@ button {
     }
 
     .footer-container {
-        max-width: 1800px;
+        max-width: 1200px;
     }
 }
 
@@ -1575,16 +1458,15 @@ button {
    ============================================ */
 @media (min-width: 1800px) {
     :root {
-        --sidebar-width: 300px;
         --max-content-width: 1200px;
     }
 
     .page-wrapper {
-        max-width: 2200px;
+        max-width: 1400px;
     }
 
     .header-container {
-        max-width: 2200px;
+        max-width: 1400px;
     }
 
     .recipe-grid {
@@ -1748,32 +1630,6 @@ button {
     color: var(--color-white);
 }
 
-/* Review Ad Placeholder */
-.review-ad {
-    margin: var(--spacing-xl) 0;
-    padding: var(--spacing-lg);
-    background-color: var(--color-gray-200);
-    border-radius: var(--border-radius-md);
-    text-align: center;
-}
-
-.review-ad .ad-label {
-    display: block;
-    font-size: var(--font-size-xs);
-    color: var(--color-gray-500);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: var(--spacing-sm);
-}
-
-.review-ad .ad-placeholder-content {
-    min-height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-gray-400);
-    font-size: var(--font-size-sm);
-}
 
 /* Brand Section */
 .brand-section {
@@ -2294,13 +2150,10 @@ a.review-price:hover {
 @media print {
     .site-header,
     .site-footer,
-    .ad-sidebar,
-    .ad-mobile,
     .recipe-actions,
     .related-section,
     .search-form,
-    .jump-to-recipe-btn,
-    .recipe-story-ad {
+    .jump-to-recipe-btn {
         display: none !important;
     }
 

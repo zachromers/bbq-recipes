@@ -34,9 +34,6 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/styles.css">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2820189081885169"
-        crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
@@ -45,33 +42,12 @@
     <!-- Header with Navigation -->
     <%- include('../partials/header') %>
 
-    <!-- Page Wrapper with Ad Sidebars -->
+    <!-- Page Wrapper -->
     <div class="page-wrapper">
-        <!-- Left Sidebar Ad (Desktop Only) -->
-        <aside class="ad-sidebar ad-sidebar-left">
-            <%- include('../partials/ad-sidebar') %>
-        </aside>
-
         <!-- Main Content Area -->
         <main id="main-content" class="main-content">
-            <!-- Mobile Top Ad -->
-            <div class="ad-mobile ad-mobile-top">
-                <%- include('../partials/ad-mobile') %>
-            </div>
-
-            <!-- Page Content -->
             <%- body %>
-
-            <!-- Mobile Bottom Ad -->
-            <div class="ad-mobile ad-mobile-bottom">
-                <%- include('../partials/ad-mobile') %>
-            </div>
         </main>
-
-        <!-- Right Sidebar Ad (Desktop Only) -->
-        <aside class="ad-sidebar ad-sidebar-right">
-            <%- include('../partials/ad-sidebar') %>
-        </aside>
     </div>
 
     <!-- Footer -->
@@ -80,51 +56,5 @@
     <!-- JavaScript -->
     <script src="/js/main.js"></script>
 
-    <!-- Smart Ad Loading - Only push ads when container has width -->
-    <script>
-    (function() {
-        function hasWidth(el) {
-            if (!el) return false;
-            // Check computed style and actual dimensions
-            var style = window.getComputedStyle(el);
-            if (style.display === 'none' || style.visibility === 'hidden') return false;
-            // Get the bounding rect which is more reliable
-            var rect = el.getBoundingClientRect();
-            return rect.width > 0;
-        }
-
-        function loadVisibleAds() {
-            var ads = document.querySelectorAll('.adsbygoogle:not([data-ad-loaded])');
-            ads.forEach(function(ad) {
-                // Check the ad element itself has width
-                if (hasWidth(ad) && ad.offsetWidth > 0) {
-                    ad.setAttribute('data-ad-loaded', 'true');
-                    try {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    } catch(e) {
-                        // Silently ignore - ad container might still be initializing
-                    }
-                }
-            });
-        }
-
-        // Debounce resize events
-        var resizeTimer;
-        function onResize() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(loadVisibleAds, 250);
-        }
-
-        // Load ads on page load and resize
-        if (document.readyState === 'complete') {
-            setTimeout(loadVisibleAds, 100);
-        } else {
-            window.addEventListener('load', function() {
-                setTimeout(loadVisibleAds, 100);
-            });
-        }
-        window.addEventListener('resize', onResize);
-    })();
-    </script>
 </body>
 </html>
